@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by training on 8/4/16.
  */
 @Controller
-@RequestMapping("/customers")
+@RequestMapping("/students")
 public class CustomerController {
 
 
