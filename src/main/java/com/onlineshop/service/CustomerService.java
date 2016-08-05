@@ -18,4 +18,8 @@ public class CustomerService {
     public List<Customer> getCustomers() {
         return customerRepository.getCustomers();
     }
+
+    public Customer getCustomer(final Customer customer) {
+        return customerRepository.getCustomer(customer);
+    }
 }

@@ -5,7 +5,7 @@ package com.onlineshop.domain;
  */
 public class Customer {
     private String customerUuid;
-    private String name;
+    private String customerName;
 
     public String getCustomerUuid() {
         return customerUuid;
@@ -15,19 +15,19 @@ public class Customer {
         this.customerUuid = customerUuid;
     }
 
-    public String getName() {
-        return name;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     @Override
     public String toString() {
         return "Customer{" +
                 "customerUuid='" + customerUuid + '\'' +
-                ", name='" + name + '\'' +
+                ", customerName='" + customerName + '\'' +
                 '}';
     }
 }

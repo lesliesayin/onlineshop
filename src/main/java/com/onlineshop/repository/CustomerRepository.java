@@ -1,6 +1,7 @@
 package com.onlineshop.repository;
 
 import com.onlineshop.domain.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -11,15 +12,25 @@ import java.util.List;
  */
 @Repository
 public class CustomerRepository {
+    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     public List<Customer> getCustomers() {
-        final String SQL = "select * from customers";
+        final String SQL = "SELECT * FROM customers";
         return jdbcTemplate.query(SQL, ((rs, rowNum) -> {
             Customer customer = new Customer();
             customer.setCustomerUuid(rs.getString("customer_uuid"));
-            customer.setName(rs.getString("customer_name"));
+            customer.setCustomerName(rs.getString("customer_name"));
             return customer;
         }));
+    }
+
+    public Customer getCustomer(final Customer customer) {
+        final String SQL = "SELECT * FROM customers WHERE customer_uuid = ?";
+        return jdbcTemplate.queryForObject(SQL, new Object[]{customer.getCustomerUuid()}, (rs, rowNum) -> {
+            customer.setCustomerUuid(rs.getString("customer_uuid"));
+            customer.setCustomerName(rs.getString("customer_name"));
+            return customer;
+        });
     }
 }
