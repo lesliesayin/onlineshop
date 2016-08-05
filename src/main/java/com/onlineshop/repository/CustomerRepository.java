@@ -33,4 +33,9 @@ public class CustomerRepository {
             return customer;
         });
     }
+
+    public void createCustomer(final Customer customer) {
+        final String SQL = "INSERT INTO customers(customer_uuid, customer_name) VALUES(?, ?)";
+        jdbcTemplate.update(SQL, new Object[]{customer.getCustomerUuid(), customer.getCustomerName()});
+    }
 }

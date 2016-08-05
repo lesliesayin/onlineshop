@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by training on 8/4/16.
@@ -21,5 +22,10 @@ public class CustomerService {
 
     public Customer getCustomer(final Customer customer) {
         return customerRepository.getCustomer(customer);
+    }
+
+    public void createCustomer(final Customer customer) {
+        customer.setCustomerUuid(UUID.randomUUID().toString());
+        customerRepository.createCustomer(customer);
     }
 }
