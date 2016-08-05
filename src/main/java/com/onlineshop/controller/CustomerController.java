@@ -36,6 +36,12 @@ public class CustomerController {
         customerService.createCustomer(customer);
     }
 
+    @RequestMapping(value = "/updateCustomer", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public void updateCustomer(@RequestBody Customer customer) {
+        customerService.updateCustomer(customer);
+    }
+
 
 
 }

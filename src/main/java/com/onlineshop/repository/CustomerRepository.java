@@ -38,4 +38,10 @@ public class CustomerRepository {
         final String SQL = "INSERT INTO customers(customer_uuid, customer_name) VALUES(?, ?)";
         jdbcTemplate.update(SQL, new Object[]{customer.getCustomerUuid(), customer.getCustomerName()});
     }
+
+    public void updateCustomer(final Customer customer) {
+        final String SQL = "UPDATE customers SET customer_name = ? WHERE customer_uuid = ?";
+        jdbcTemplate.update(SQL, new Object[]{customer.getCustomerName(), customer.getCustomerUuid()});
+
+    }
 }

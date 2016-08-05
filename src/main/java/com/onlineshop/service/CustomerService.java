@@ -28,4 +28,8 @@ public class CustomerService {
         customer.setCustomerUuid(UUID.randomUUID().toString());
         customerRepository.createCustomer(customer);
     }
+
+    public void updateCustomer(final Customer customer) {
+        customerRepository.updateCustomer(customer);
+    }
 }
